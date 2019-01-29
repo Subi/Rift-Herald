@@ -27,7 +27,7 @@ bot.on('message', message => {
             message.reply('Please mention a correct user  to kick!');
         }
     }
-});
+}); 
 
 
 bot.on('message', msg => {
