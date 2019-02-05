@@ -1,6 +1,8 @@
-const Discord = require('discord.js');
-const bot  = new Discord.Client();
-bot.login('NTM5Mjg4NTU0NDUxMjM4OTIz.DzAMXg.l8mZFH8hJh_bI2nafWaCd9lUYaE');
+const Discord = require('discord.js'),
+const bot  = new Discord.Client(),
+const fetch = require('node-fetch'),
+const api = require('./api');
+
 
 
 bot.on('ready', () => {
@@ -59,6 +61,22 @@ bot.on('message', msg => {
 });
 
 
+bot.on('message', async msg => {
+    let prefix = '!';
+    let rank = 'rank';
+    if(msg.content.toLowerCase().startsWith(prefix + rank)){
+        const  args = msg.content.split(" ");
+        const  user = args[1];
+        let data = await api.summonerRank(user);
+        if(data.length < 1) {
+            msg.channel.send(`Sorry this summoner is not yet ranked!`)
+        } else {
+        data.forEach(e => {
+            msg.channel.send(`${user} current rank is ${e.tier} ${e.rank} ${e.position}`);
+        })
+        }
+    }
+})
 
 
 bot.on('guildMemberAdd', member => {
@@ -68,6 +86,10 @@ bot.on('guildMemberAdd', member => {
         channel.send(`Welcome to the server, ${member}`);
     member.addRole(memberRole);
 });
+
+
+
+bot.login();
 
 
 
