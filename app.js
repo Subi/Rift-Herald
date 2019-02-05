@@ -87,7 +87,7 @@ bot.on('guildMemberAdd', member => {
     member.addRole(memberRole);
 });
 
-
+// lol
 
 bot.login();
 
