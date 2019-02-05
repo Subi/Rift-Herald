@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot  = new Discord.Client();
-bot.login('NTM5Mjg4NTU0NDUxMjM4OTIz.DzAMXg.l8mZFH8hJh_bI2nafWaCd9lUYaE');
+bot.login();
 
 
 bot.on('ready', () => {
