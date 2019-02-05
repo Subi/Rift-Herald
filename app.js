@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 const Discord = require('discord.js'),
 const bot  = new Discord.Client(),
 const fetch = require('node-fetch'),
 const api = require('./api');
 
+=======
+const Discord = require('discord.js');
+const bot  = new Discord.Client();
+bot.login();
+>>>>>>> 65e9ec205a2f9b2ae9e5dfca7342889df60b287d
 
 
 bot.on('ready', () => {
